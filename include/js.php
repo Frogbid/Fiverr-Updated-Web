@@ -3,3 +3,5 @@
 <script src="dist-assets/js/plugins/perfect-scrollbar.min.js"></script>
 <script src="dist-assets/js/scripts/script.min.js"></script>
 <script src="dist-assets/js/scripts/sidebar.large.script.min.js"></script>
+<script src="dist-assets/js/plugins/datatables.min.js"></script>
+<script src="dist-assets/js/scripts/datatables.script.min.js"></script>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 03, 2021 at 01:04 PM
+-- Generation Time: Oct 04, 2021 at 01:25 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -46,6 +46,42 @@ CREATE TABLE `home_card` (
 
 INSERT INTO `home_card` (`id`, `card_title_1`, `card_description_1`, `card_title_2`, `card_description_2`, `card_title_3`, `card_description_3`, `card_title_4`, `card_description_4`, `updated_at`) VALUES
 (1, 'Access to Wholesale Pricing', 'CarCentive can help maximize your savings and get you the best price on your next new or pre-owned vehicle. Our sales and leasing services beat other new car brokers and dealer prices. We also assist with refinancing options as well!', 'PRE-PURCHASE DOCUMENTATION REVIEW', 'We know how to protect you from all the common car dealership tricks, expose hidden fees and get you your dream car at the best rates possible. At CarCentive, we can also review your pending purchase agreements to see if we can get you a better deal for your car.', 'EXTENSIVE EXPERIENCE', 'With almost 20 years of experience in the automotive industry, we are able to shield our customers from hidden costs to get you in the car you need at the price that suits your budget.\r\n', 'SERVING CUSTOMERS NATIONWIDE', 'Clients in New Jersey, New York and Pennsylvania are not the only ones who benefit from our services. Car buyers throughout the country can experience our fantastic car buying & auto leasing services. Contact us today to learn how CarCentive can save you money anywhere in the country.', '2021-10-03 10:57:03');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `home_clients`
+--
+
+CREATE TABLE `home_clients` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `image` varchar(1000) NOT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `home_clients`
+--
+
+INSERT INTO `home_clients` (`id`, `name`, `image`, `updated_at`) VALUES
+(1, 'landrover', 'clients/landrover.png', '2021-10-04 09:51:48'),
+(2, 'mazda', 'clients/mazda.png', '2021-10-04 09:52:14'),
+(3, 'ferrari', 'clients/ferrari.png', '2021-10-04 09:52:20'),
+(4, 'acura', 'clients/acura.jpg', '2021-10-04 09:54:17'),
+(5, 'toyota', 'clients/toyota.png', '2021-10-04 09:52:32'),
+(6, 'mercedes', 'clients/mercedes.png', '2021-10-04 09:52:40'),
+(7, 'chevrolet', 'clients/chevrolet.png', '2021-10-04 09:52:46'),
+(8, 'nissan', 'clients/nissan.png', '2021-10-04 09:52:52'),
+(9, 'audi', 'clients/audi.png', '2021-10-04 09:52:58'),
+(10, 'lamborghini', 'clients/lamborghini.png', '2021-10-04 09:53:03'),
+(11, 'maserati', 'clients/maserati.png', '2021-10-04 09:53:09'),
+(12, 'porsche', 'clients/porsche.png', '2021-10-04 09:53:15'),
+(13, 'hundai', 'clients/hundai.png', '2021-10-04 09:53:22'),
+(14, 'mini', 'clients/mini.png', '2021-10-04 09:53:27'),
+(15, 'volkswagen', 'clients/volkswagen.png', '2021-10-04 09:53:33'),
+(16, 'ford', 'clients/ford.png', '2021-10-04 09:53:38'),
+(17, 'lexus', 'clients/lexus.png', '2021-10-04 10:00:20');
 
 -- --------------------------------------------------------
 
@@ -96,41 +132,6 @@ INSERT INTO `home_sub_heading` (`id`, `main_title`, `sub_title`, `description`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `home_vendors`
---
-
-CREATE TABLE `home_vendors` (
-  `id` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL,
-  `image` varchar(1000) NOT NULL,
-  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `home_vendors`
---
-
-INSERT INTO `home_vendors` (`id`, `name`, `image`, `updated_at`) VALUES
-(1, 'landrover', '../car/landrover.png', '2021-10-03 08:23:49'),
-(2, 'mazda', '../car/mazda.png', '2021-10-03 08:30:44'),
-(3, 'ferrari', '../car/ferrari.png', '2021-10-03 08:30:44'),
-(4, 'acura', '../car/acura.png', '2021-10-03 08:30:44'),
-(5, 'toyota', '../car/toyota.png', '2021-10-03 08:30:44'),
-(6, 'mercedes', '../car/mercedes.png', '2021-10-03 08:30:44'),
-(7, 'chevrolet', '../car/chevrolet.png', '2021-10-03 08:30:44'),
-(8, 'nissan', '../car/nissan.png', '2021-10-03 08:30:44'),
-(9, 'audi', '../car/audi.png', '2021-10-03 08:30:44'),
-(10, 'lamborghini', '../car/lamborghini.png', '2021-10-03 08:30:44'),
-(11, 'maserati', '../car/maserati.png', '2021-10-03 08:30:44'),
-(12, 'porsche', '../car/porsche.png', '2021-10-03 08:30:44'),
-(13, 'hundai', '../car/hundai.png', '2021-10-03 08:30:44'),
-(14, 'mini', '../car/mini.png', '2021-10-03 08:30:44'),
-(15, 'volkswagen', '../car/volkswagen.png', '2021-10-03 08:30:44'),
-(16, 'ford', '../car/ford.png', '2021-10-03 08:30:44');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `social_links`
 --
 
@@ -149,6 +150,32 @@ CREATE TABLE `social_links` (
 INSERT INTO `social_links` (`id`, `fb_link`, `insta_link`, `twitter_link`, `updated_at`) VALUES
 (1, 'https://www.facebook.com/CarCentive', 'https://www.instagram.com/carcentive/', 'https://twitter.com/carcentive', '2021-10-03 11:01:50');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `testimonials`
+--
+
+CREATE TABLE `testimonials` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `client` varchar(100) NOT NULL,
+  `model` varchar(100) NOT NULL,
+  `year` varchar(4) NOT NULL,
+  `message` varchar(1000) NOT NULL,
+  `image` varchar(100) NOT NULL,
+  `approve` int(11) NOT NULL DEFAULT 0,
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `testimonials`
+--
+
+INSERT INTO `testimonials` (`id`, `name`, `client`, `model`, `year`, `message`, `image`, `approve`, `updated_at`) VALUES
+(1, 'Adam J', 'Honda', 'CRV', '2019', 'We purchased a vehicle and had a great experience! The staff is very friendly and answered all our questions. Hassle-free test drive and all information clearly presented.\r\n', 'testimonial/49945-z.jpg', 0, '2021-10-04 11:23:05'),
+(2, 'Ralph A.', 'Toyota', 'Camry', '2018', 'Amazing Car keep up the good work.\r\n', 'testimonial/56721-38759-baa14123-724c-4413-b315-e91d69fcd5ce.png', 0, '2021-10-04 10:30:08');
+
 --
 -- Indexes for dumped tables
 --
@@ -157,6 +184,12 @@ INSERT INTO `social_links` (`id`, `fb_link`, `insta_link`, `twitter_link`, `upda
 -- Indexes for table `home_card`
 --
 ALTER TABLE `home_card`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `home_clients`
+--
+ALTER TABLE `home_clients`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -172,15 +205,15 @@ ALTER TABLE `home_sub_heading`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `home_vendors`
---
-ALTER TABLE `home_vendors`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `social_links`
 --
 ALTER TABLE `social_links`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `testimonials`
+--
+ALTER TABLE `testimonials`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -192,6 +225,12 @@ ALTER TABLE `social_links`
 --
 ALTER TABLE `home_card`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `home_clients`
+--
+ALTER TABLE `home_clients`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `home_main_heading`
@@ -206,16 +245,16 @@ ALTER TABLE `home_sub_heading`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `home_vendors`
---
-ALTER TABLE `home_vendors`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
---
 -- AUTO_INCREMENT for table `social_links`
 --
 ALTER TABLE `social_links`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `testimonials`
+--
+ALTER TABLE `testimonials`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -41,7 +41,7 @@
         <ul class="childNav" data-parent="dashboard">
             <li class="nav-item"><a href="dashboard.php"><i class="nav-icon i-Clock-3"></i><span class="item-name">Main Page</span></a></li>
             <li class="nav-item"><a href="testimonial.php"><i class="nav-icon i-Clock-4"></i><span class="item-name">Testimonial</span></a>
-            <li class="nav-item"><a href="vendor.php"><i class="nav-icon i-Over-Time"></i><span class="item-name">Vendor</span></a></li>
+            <li class="nav-item"><a href="clients.php"><i class="nav-icon i-Over-Time"></i><span class="item-name">Clients</span></a></li>
 <!--        <li class="nav-item"><a href="dashboard3.html"><i class="nav-icon i-Over-Time"></i><span class="item-name">Version 3</span></a></li>
             <li class="nav-item"><a href="dashboard4.html"><i class="nav-icon i-Clock"></i><span class="item-name">Version 4</span></a></li>-->
         </ul>
