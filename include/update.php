@@ -27,12 +27,11 @@ if (isset($_POST['home_sub_heading'])) {
     $description = mysqli_real_escape_string($connect, $_POST['description']);
 
     $image = $_FILES['image']['name'];
-    $image_text = mysqli_real_escape_string($connect, $_POST['image_text']);
-    $target = "subheading/".basename($image);
+    $target = "subheading/" . basename($image);
 
     $sql = "UPDATE `home_sub_heading` SET `main_title`='$main_title',`sub_title`='$sub_title',`description`='$description',`image`='$target' WHERE `id`=1";
 
-    if (mysqli_query($connect, $sql)&&move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
+    if (mysqli_query($connect, $sql) && move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
         header('Location: dashboard.php');
     } else {
         echo "Error: " . $sql . "<br>" . $connect->error;
@@ -140,6 +139,57 @@ if (isset($_POST['social_links_3'])) {
 
     if (mysqli_query($connect, $sql)) {
         header('Location: dashboard.php');
+    } else {
+        echo "Error: " . $sql . "<br>" . $connect->error;
+    }
+}
+
+//update testimonials
+if (isset($_POST['updateTestimonial'])) {
+
+    $id=mysqli_real_escape_string($connect, $_POST['id']);
+    $name = mysqli_real_escape_string($connect, $_POST['name']);
+    $client = mysqli_real_escape_string($connect, $_POST['client']);
+    $model = mysqli_real_escape_string($connect, $_POST['model']);
+    $year = mysqli_real_escape_string($connect, $_POST['year']);
+    $message = mysqli_real_escape_string($connect, $_POST['message']);
+    $approve = mysqli_real_escape_string($connect, $_POST['approve']);
+
+    $image = $_FILES['image']['name'];
+    $target = "testimonial/" . basename($image);
+
+    if($image!=''){
+        $sql = "UPDATE `testimonials` SET `name`='$name',`client`='$client',`model`='$model',`year`='$year',`message`='$message',`approve`='$approve',`image`='$target' WHERE `id`='$id'";
+        move_uploaded_file($_FILES['image']['tmp_name'], $target);
+    }
+    else
+        $sql = "UPDATE `testimonials` SET `name`='$name',`client`='$client',`model`='$model',`year`='$year',`message`='$message',`approve`='$approve' WHERE `id`='$id'";
+
+    if (mysqli_query($connect, $sql)) {
+        header('Location: testimonial.php');
+    } else {
+        echo "Error: " . $sql . "<br>" . $connect->error;
+    }
+}
+
+//update testimonials
+if (isset($_POST['updateClient'])) {
+
+    $id=mysqli_real_escape_string($connect, $_POST['id']);
+    $name = mysqli_real_escape_string($connect, $_POST['name']);
+
+    $image = $_FILES['image']['name'];
+    $target = "clients/" . basename($image);
+
+    if($image!=''){
+        $sql = "UPDATE `home_clients` SET `name`='$name',`image`='$target' WHERE `id`='$id'";
+        move_uploaded_file($_FILES['image']['tmp_name'], $target);
+    }
+    else
+        $sql = "UPDATE `home_clients` SET `name`='$name' WHERE `id`='$id'";
+
+    if (mysqli_query($connect, $sql)) {
+        header('Location: clients.php');
     } else {
         echo "Error: " . $sql . "<br>" . $connect->error;
     }
