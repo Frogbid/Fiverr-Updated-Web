@@ -37,3 +37,24 @@ if (isset($_POST['addClient'])) {
         echo "Error: " . $sql . "<br>" . $connect->error;
     }
 }
+
+//insert consultation form data
+if (isset($_POST['addConsultationFormData'])) {
+
+    $first_name = mysqli_real_escape_string($connect, $_POST['first_name']);
+    $last_name = mysqli_real_escape_string($connect, $_POST['last_name']);
+    $purchase_type = mysqli_real_escape_string($connect, $_POST['purchase_type']);
+    $email = mysqli_real_escape_string($connect, $_POST['email']);
+    $date = mysqli_real_escape_string($connect, $_POST['date']);
+    $monthly_budget = mysqli_real_escape_string($connect, $_POST['monthly_budget']);
+    $down_payment_amount = mysqli_real_escape_string($connect, $_POST['down_payment_amount']);
+
+
+    $sql = "INSERT INTO `request_consultation_form`(`first_name`, `last_name`, `purchase_type`, `email`, `date`, `monthly_budget`, `down_payment_amount`) VALUES ('$first_name','$last_name','$purchase_type','$email','$date','$monthly_budget','$down_payment_amount')";
+
+    if (mysqli_query($connect, $sql)) {
+        header('Location: consultation_form.php');
+    } else {
+        echo "Error: " . $sql . "<br>" . $connect->error;
+    }
+}

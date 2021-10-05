@@ -28,3 +28,17 @@ if (isset($_GET['client_id'])) {
         echo "Error: " . $sql . "<br>" . $connect->error;
     }
 }
+
+//delete consultation form data
+if (isset($_GET['consultation_form_id'])) {
+
+    $id = mysqli_real_escape_string($connect, $_GET['consultation_form_id']);
+
+    $sql = "DELETE FROM `request_consultation_form` WHERE id='$id'";
+
+    if (mysqli_query($connect, $sql)) {
+        header('Location: ../consultation_form.php');
+    } else {
+        echo "Error: " . $sql . "<br>" . $connect->error;
+    }
+}
